@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<RelativeLayout
+    android:paddingTop="250dp"
+    android:layout_marginLeft="100dp"
+    android:gravity="center_vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+  <!--  당뇨, 고혈압, 위염/위궤앙, 장염 -->
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="당뇨"
+        android:id="@+id/check1"/>
+    <CheckBox
+      android:layout_below="@+id/check1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="고혈압"
+        android:id="@+id/check2"/>
+    <CheckBox
+        android:layout_below="@+id/check2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="위염/위궤양"
+        android:id="@+id/check3"/>
+    <CheckBox
+        android:layout_below="@+id/check3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="장염"
+        android:id="@+id/check4"/>
+  <CheckBox
+      android:layout_below="@+id/check4"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="고지혈증"
+      android:id="@+id/check5"/>
+
+  <ImageView
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_below="@+id/check4"
+      android:layout_marginTop="70dp"
+      android:src="@drawable/go" />
+
+
+</RelativeLayout>
+
+
+
+</LinearLayout>
