@@ -2,6 +2,7 @@ package com.example.hackathon;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapView;
@@ -24,6 +26,11 @@ public class MainActivity extends NMapActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        TextView nameText = (TextView)findViewById(R.id.txt);
+        Intent intent = getIntent();
+        nameText.setText(intent.getStringExtra("nameText").toString());
         CheckBox checkBox1 = (CheckBox) findViewById(R.id.check1) ;
         CheckBox checkBox2 = (CheckBox) findViewById(R.id.check2) ;
         CheckBox checkBox3 = (CheckBox) findViewById(R.id.check3) ;
