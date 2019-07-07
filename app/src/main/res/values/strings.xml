@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Hackathon</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_title1">[지도]\n지도를 표시하기</string>
+    <string name="app_title2">[지도]\n지도에 핀을 표시하기</string>
+    <string name="app_title3">[지도]\n위도경도로 주소 구하기</string>
+    <string name="app_title4">[지도]\n지도에 경로 표시하기</string>
+    <string name="ch1002_pinpoint">핀 좌표</string>
+    <string name="ch1002_latitude">위도 : %s</string>
+    <string name="ch1002_longitude">경도 : %s</string>
 </resources>
