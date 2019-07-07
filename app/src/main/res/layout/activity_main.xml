@@ -27,11 +27,20 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:textSize="50px"
-      android:text="님, 아래 질병 중 자신에게 해당되는 것을 선택하세요."
+      android:text="님, 아래 질병 중"
+      />
+  <TextView
+      android:id="@+id/txt3"
+      android:layout_below="@+id/txt"
+      android:paddingBottom="50dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="50px"
+      android:text="자신에게 해당되는 것을 선택하세요."
       />
   <!--  당뇨, 고혈압, 위염/위궤앙, 장염 -->
     <CheckBox
-        android:layout_below="@+id/txt2"
+        android:layout_below="@+id/txt3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="당뇨"
