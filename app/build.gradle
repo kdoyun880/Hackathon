@@ -7,6 +7,8 @@ android {
         applicationId "com.example.hackathon"
         minSdkVersion 15
         targetSdkVersion 26
+        //add
+       //multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -30,7 +32,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.android.gms:play-services-location:17.0.0'
     implementation 'com.android.support:design'
-
+    //
+    //implementation 'com.android..support:multidex:1.0.1'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
