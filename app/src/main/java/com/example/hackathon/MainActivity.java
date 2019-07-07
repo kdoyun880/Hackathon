@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         try {
-            searcher.search("종로구", handler);
+            searcher.search(handler);
         } catch (IOException e) {
             e.printStackTrace();
         }

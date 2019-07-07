@@ -3,50 +3,37 @@ package com.example.hackathon;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
 
 public class Searcher {
-    private final String CLIENT_ID = "gNb6sSonzRoMMVx1lJ36";
-    private final String CLIENT_SECRET = "acxi_ZN8jg";
-
-    public void search(final String location, final Handler handler) throws IOException {
+    public void search(final Handler handler) throws IOException {
         new Thread() {
             public void run() {
                 try {
-                    String jsonString = getSearchData(location);
+                    String jsonString = getSearchData();
                     Bundle bun = new Bundle();
-                    String result = parseData(jsonString);
 
-                    bun.putString("SEARCH_DATA", result);
+                    bun.putString("SEARCH_DATA", jsonString);
 
                     Message msg = handler.obtainMessage();
                     msg.setData(bun);
                     handler.sendMessage(msg);
                 } catch (IOException e) {
                     e.printStackTrace();
-                } catch (JSONException e) {
-                    e.printStackTrace();
                 }
             }
         }.start();
     }
 
-    private String getSearchData(String location) throws IOException {
+    private String getSearchData() throws IOException {
         String searchData = "";
-        String query = URLEncoder.encode(location + " 맛집", "UTF-8");
         URL url = new URL(
-                "https://openapi.naver.com/v1/search/local.json?query=" + query + "&display=30");
+                "https://git-hackathon-hippo.herokuapp.com/search");
 
         HttpURLConnection urlConnection = null;
         InputStreamReader isr = null;
@@ -54,9 +41,7 @@ public class Searcher {
 
         try {
             urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setRequestMethod("GET");
-            urlConnection.setRequestProperty("X-Naver-Client-Id", CLIENT_ID);
-            urlConnection.setRequestProperty("X-Naver-Client-Secret", CLIENT_SECRET);
+            urlConnection.setRequestMethod("POST");
 
             int status = urlConnection.getResponseCode();
             if (status != HttpURLConnection.HTTP_OK) {
@@ -86,20 +71,5 @@ public class Searcher {
         }
 
         return searchData;
-    }
-
-    private String parseData(String jsonString) throws JSONException {
-        JSONObject jsonObj = new JSONObject(jsonString);
-        JSONArray items = jsonObj.getJSONArray("items");
-        String returnValue = "";
-        for (int i = 0; i < items.length(); i++) {
-            JSONObject item = items.getJSONObject(i);
-            String title = (String) item.get("title");
-
-            returnValue += title + "\n";
-        }
-
-        Log.i("", returnValue);
-        return returnValue;
     }
 }
