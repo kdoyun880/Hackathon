@@ -16,7 +16,7 @@ import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapView;
 
 
-public class MainActivity extends NMapActivity {
+public class MainActivity extends AppCompatActivity {
     String ret= "";
     static int inx =0;
     boolean []disorder_category = new boolean[5];
@@ -79,6 +79,11 @@ public class MainActivity extends NMapActivity {
             @Override
             public void onClick(View view) {
                 for(int i=0; i<inx; i++) System.out.println(category[i]);
+
+
+                Intent intent = new Intent(getApplicationContext(), Progress.class);
+                intent.putExtra("array", category);
+                startActivity(intent);
             }
         });
 
